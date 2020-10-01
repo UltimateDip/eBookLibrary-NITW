@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:e_book_library_nitw/WelcomeScreen.dart';
+import 'package:e_book_library_nitw/AuthScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,8 +20,8 @@ class _MyAppState extends State<MyApp> {
       initialRoute: WelcomeScreen.id,
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
+        AuthScreen.routeName: (context) => AuthScreen(),
         // RegistrationScreen.id: (context) => RegistrationScreen(),
-        // AuthScreen.routeName: (context) => AuthScreen(),
         // FoodMenuPage.id: (context) => FoodMenuPage()
       },
     );

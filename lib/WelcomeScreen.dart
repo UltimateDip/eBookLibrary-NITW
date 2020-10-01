@@ -1,5 +1,5 @@
+import 'package:e_book_library_nitw/AuthScreen.dart';
 import 'package:flutter/material.dart';
-
 
 class WelcomeScreen extends StatefulWidget {
   static const id = 'welcome_screen';
@@ -11,6 +11,7 @@ class WelcomeScreen extends StatefulWidget {
 class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final deviceSize = MediaQuery.of(context).size;
     return SafeArea(
       child: Container(
         decoration: BoxDecoration(
@@ -68,32 +69,34 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
               ),
               RaisedButton(
-                padding: EdgeInsets.fromLTRB(10, 60, 10, 50),
+                padding: EdgeInsets.fromLTRB(10, 60, 10, 0),
                 child: Material(
                   elevation: 10.0,
                   color: Colors.indigo,
                   borderRadius: BorderRadius.circular(10.0),
                   child: MaterialButton(
-                    onPressed: () {
-                      //TODO
-                    },
-                    minWidth: 200.0,
+                    minWidth: deviceSize.width * 0.8,
                     height: 42.0,
                     child: Text('Student Login'),
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(
+                          context, AuthScreen.routeName);
+                    },
                   ),
                 ),
               ),
               RaisedButton(
-                padding: EdgeInsets.fromLTRB(10, 15, 10, 50),
+                padding: EdgeInsets.fromLTRB(10, 15, 10, 0),
                 child: Material(
                   elevation: 10.0,
                   color: Colors.green,
                   borderRadius: BorderRadius.circular(10.0),
                   child: MaterialButton(
                     onPressed: () {
-                      //TODO
+                      Navigator.pushReplacementNamed(
+                          context, AuthScreen.routeName);
                     },
-                    minWidth: 200.0,
+                    minWidth: deviceSize.width * 0.8,
                     height: 42.0,
                     child: Text('Librarian Login'),
                   ),
