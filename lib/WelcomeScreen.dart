@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-// import 'registration_screen.dart';
-// import 'reusable_elements/round_buttons.dart';
-// import 'package:test_app_1/auth_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const id = 'welcome_screen';
@@ -17,7 +14,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     return SafeArea(
       child: Container(
         decoration: BoxDecoration(
-          color: Color(0xfffdfdfd),
+          color: Colors.white,
         ),
         child: SingleChildScrollView(
           child: Column(
@@ -44,15 +41,15 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ],
               ),
               Hero(
-                tag: 'FasTo logo',
+                tag: 'e-book Library Logo',
                 child: Center(
                   child: RichText(
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: "e Book",
+                          text: "e-Book ",
                           style: TextStyle(
-                            color: Color(0xffffc1fa),
+                            color: Colors.blue,
                             fontWeight: FontWeight.bold,
                             fontSize: 32,
                           ),
@@ -60,7 +57,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         TextSpan(
                           text: "Library",
                           style: TextStyle(
-                            color: Color(0xfff09ae9),
+                            color: Colors.orange,
                             fontWeight: FontWeight.bold,
                             fontSize: 33,
                           ),
@@ -70,31 +67,38 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ),
                 ),
               ),
-
-              // RoundButton(
-              //   color: Color(0xff09e0d9),
-              //   title: 'Register',
-              //   onClick: () {
-              //     Navigator.push(
-              //       context,
-              //       AnimatedRouteTransition(
-              //         route: RegistrationScreen(),
-              //       ),
-              //     );
-              //   },
-              // ),
-              // RoundButton(
-              //   color: Colors.lightBlueAccent,
-              //   title: 'Log In',
-              //   onClick: () {
-              //     Navigator.push(
-              //       context,
-              //       AnimatedRouteTransition(
-              //         route: AuthScreen(),
-              //       ),
-              //     );
-              //   },
-              // ),
+              RaisedButton(
+                padding: EdgeInsets.fromLTRB(10, 60, 10, 50),
+                child: Material(
+                  elevation: 10.0,
+                  color: Colors.indigo,
+                  borderRadius: BorderRadius.circular(10.0),
+                  child: MaterialButton(
+                    onPressed: () {
+                      //TODO
+                    },
+                    minWidth: 200.0,
+                    height: 42.0,
+                    child: Text('Student Login'),
+                  ),
+                ),
+              ),
+              RaisedButton(
+                padding: EdgeInsets.fromLTRB(10, 15, 10, 50),
+                child: Material(
+                  elevation: 10.0,
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(10.0),
+                  child: MaterialButton(
+                    onPressed: () {
+                      //TODO
+                    },
+                    minWidth: 200.0,
+                    height: 42.0,
+                    child: Text('Librarian Login'),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
