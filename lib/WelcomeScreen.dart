@@ -1,4 +1,4 @@
-import 'package:e_book_library_nitw/AuthScreen.dart';
+import 'package:e_book_library_nitw/LoginScreen.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -79,8 +79,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     height: 42.0,
                     child: Text('Student Login'),
                     onPressed: () {
-                      Navigator.pushReplacementNamed(
-                          context, AuthScreen.routeName);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AuthScreen(),
+                        ),
+                      );
                     },
                   ),
                 ),
@@ -93,8 +97,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   borderRadius: BorderRadius.circular(10.0),
                   child: MaterialButton(
                     onPressed: () {
-                      Navigator.pushReplacementNamed(
-                          context, AuthScreen.routeName);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AuthScreen(),
+                        ),
+                      );
                     },
                     minWidth: deviceSize.width * 0.8,
                     height: 42.0,

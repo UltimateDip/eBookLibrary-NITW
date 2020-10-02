@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:e_book_library_nitw/WelcomeScreen.dart';
-import 'package:e_book_library_nitw/AuthScreen.dart';
+import 'package:e_book_library_nitw/LoginScreen.dart';
 
 void main() {
   runApp(MyApp());

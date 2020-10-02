@@ -1,3 +1,4 @@
+import 'package:e_book_library_nitw/CourseAndBooks.dart';
 import 'package:flutter/material.dart';
 
 enum AuthMode { LibrarianLogin, StudentLogin }
@@ -23,12 +24,15 @@ class AuthScreen extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 25.0),
-                      child: Container(
-                        height: 200,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                              'images/nitwlogo.png',
+                      child: Hero(
+                        tag: 'NITW logo',
+                        child: Container(
+                          height: 200,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                'images/nitwlogo.png',
+                              ),
                             ),
                           ),
                         ),
@@ -102,8 +106,10 @@ class _AuthCardState extends State<AuthCard> {
       _isLoading = true;
     });
 
+    //TODO
     if (_authMode == AuthMode.StudentLogin) {
       //TODO for students
+      Navigator.of(context).pushReplacementNamed(CourseAndBook.id);
     } else {
       //TODO for librarian
     }
@@ -146,16 +152,16 @@ class _AuthCardState extends State<AuthCard> {
                       ),
                       decoration: InputDecoration(
                         hintText:
-                            '${_authMode == AuthMode.StudentLogin ? 'Registration Number' : 'E-mail'}',
+                        '${_authMode == AuthMode.StudentLogin ? 'Registration Number' : 'E-mail'}',
                         hintStyle: TextStyle(color: Colors.grey[400]),
                         contentPadding: EdgeInsets.symmetric(
                             vertical: 16.0, horizontal: 16.0),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey[400]),
+                          borderSide: BorderSide(color: Colors.blue),
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey[400]),
+                          borderSide: BorderSide(color: Colors.blue),
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
@@ -166,7 +172,7 @@ class _AuthCardState extends State<AuthCard> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsets.only(left: 10, top: 10, right: 10),
+                    const EdgeInsets.only(left: 10, top: 10, right: 10),
                     child: TextFormField(
                       style: TextStyle(
                         color: Colors.black,
@@ -177,11 +183,11 @@ class _AuthCardState extends State<AuthCard> {
                         contentPadding: EdgeInsets.symmetric(
                             vertical: 16.0, horizontal: 16.0),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey[400]),
+                          borderSide: BorderSide(color: Colors.blue),
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey[400]),
+                          borderSide: BorderSide(color: Colors.blue),
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
@@ -211,7 +217,7 @@ class _AuthCardState extends State<AuthCard> {
                   //login button
                   Padding(
                     padding:
-                        const EdgeInsets.only(left: 10, top: 10, right: 10),
+                    const EdgeInsets.only(left: 10, top: 10, right: 10),
                     child: Material(
                       elevation: 5.0,
                       color: _authMode == AuthMode.StudentLogin
@@ -230,7 +236,7 @@ class _AuthCardState extends State<AuthCard> {
                   //sign up <-> login exchange button
                   Padding(
                     padding:
-                        const EdgeInsets.only(left: 10, top: 20, right: 10),
+                    const EdgeInsets.only(left: 10, top: 20, right: 10),
                     child: Material(
                       elevation: 5.0,
                       color: _authMode == AuthMode.StudentLogin
