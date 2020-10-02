@@ -236,8 +236,8 @@ class _AuthCardState extends State<AuthCard> {
                         onPressed: () {
                           //This is temporary , actual action is comment out below
                           //TODO
-                          Navigator.pushReplacementNamed(context,
-                              CourseAndBook.id);
+                          Navigator.pushReplacementNamed(
+                              context, LibrarianView.id);
                         }, //_submit,
                         minWidth: 200.0,
                         height: 42.0,

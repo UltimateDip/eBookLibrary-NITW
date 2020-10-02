@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class BookDetails extends StatefulWidget {
   static const id = 'book_details';
 
-  BookDetails(this.courseId);
+  BookDetails(this.bookId);
 
-  final courseId;
+  final bookId;
 
   @override
   _BookDetailsState createState() => _BookDetailsState();
@@ -27,7 +27,7 @@ class _BookDetailsState extends State<BookDetails> {
                 height: deviceSize.height / 5,
                 child: Center(
                   child: Text(
-                    'CourseName : ${widget.courseId}',
+                    'Book Name : ${widget.bookId}',
                   ),
                 ),
               ),
