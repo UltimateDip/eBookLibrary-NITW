@@ -1,3 +1,5 @@
+import 'package:e_book_library_nitw/CourseAndBooks.dart';
+import 'package:e_book_library_nitw/LibrarianView.dart';
 import 'package:flutter/material.dart';
 import 'package:e_book_library_nitw/WelcomeScreen.dart';
 import 'package:e_book_library_nitw/LoginScreen.dart';
@@ -21,6 +23,8 @@ class _MyAppState extends State<MyApp> {
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
         AuthScreen.routeName: (context) => AuthScreen(),
+        CourseAndBook.id: (context) => CourseAndBook(),
+        LibrarianView.id: (context) => LibrarianView(),
         // RegistrationScreen.id: (context) => RegistrationScreen(),
         // FoodMenuPage.id: (context) => FoodMenuPage()
       },

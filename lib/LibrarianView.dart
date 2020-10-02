@@ -1,14 +1,14 @@
-import 'package:e_book_library_nitw/BookDetails.dart';
+import 'package:e_book_library_nitw/BookEdit.dart';
 import 'package:flutter/material.dart';
 
-class CourseAndBook extends StatefulWidget {
-  static const id = 'courses_and_books';
+class LibrarianView extends StatefulWidget {
+  static const id = 'librarian_view';
 
   @override
-  _CourseAndBookState createState() => _CourseAndBookState();
+  _LibrarianViewState createState() => _LibrarianViewState();
 }
 
-class _CourseAndBookState extends State<CourseAndBook> {
+class _LibrarianViewState extends State<LibrarianView> {
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
@@ -68,7 +68,7 @@ Widget _buildCourses(BuildContext context, String courseId) {
 //TODO : navigate to books
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => BookDetails(courseId),
+            builder: (context) => BookEdit(courseId),
           ),
         );
       },

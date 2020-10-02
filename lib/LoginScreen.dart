@@ -1,4 +1,5 @@
 import 'package:e_book_library_nitw/CourseAndBooks.dart';
+import 'package:e_book_library_nitw/LibrarianView.dart';
 import 'package:flutter/material.dart';
 
 enum AuthMode { LibrarianLogin, StudentLogin }
@@ -112,6 +113,7 @@ class _AuthCardState extends State<AuthCard> {
       Navigator.of(context).pushReplacementNamed(CourseAndBook.id);
     } else {
       //TODO for librarian
+      Navigator.of(context).pushReplacementNamed(LibrarianView.id);
     }
 
     setState(() {
@@ -152,7 +154,7 @@ class _AuthCardState extends State<AuthCard> {
                       ),
                       decoration: InputDecoration(
                         hintText:
-                        '${_authMode == AuthMode.StudentLogin ? 'Registration Number' : 'E-mail'}',
+                            '${_authMode == AuthMode.StudentLogin ? 'Registration Number' : 'E-mail'}',
                         hintStyle: TextStyle(color: Colors.grey[400]),
                         contentPadding: EdgeInsets.symmetric(
                             vertical: 16.0, horizontal: 16.0),
@@ -225,7 +227,12 @@ class _AuthCardState extends State<AuthCard> {
                           : Colors.green,
                       borderRadius: BorderRadius.circular(10.0),
                       child: MaterialButton(
-                        onPressed: _submit,
+                        onPressed: () {
+                          //This is temporary , actual action is comment out below
+                          //TODO
+                          Navigator.pushReplacementNamed(context,
+                              CourseAndBook.id);
+                        }, //_submit,
                         minWidth: 200.0,
                         height: 42.0,
                         child: Text('LOGIN '),
