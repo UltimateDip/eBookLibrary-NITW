@@ -49,7 +49,7 @@ class _AuthScreenLState extends State<AuthScreenL> {
               ),
             ),
             Hero(
-              tag: 'e-book Library Logo',
+              tag: 'e-book Library name',
               child: Center(
                 child: RichText(
                   text: TextSpan(
