@@ -4,9 +4,14 @@ import 'package:flutter/material.dart';
 
 enum AuthMode { LibrarianLogin, StudentLogin }
 
-class AuthScreen extends StatelessWidget {
+class AuthScreen extends StatefulWidget {
   static const routeName = '/auth';
 
+  @override
+  _AuthScreenState createState() => _AuthScreenState();
+}
+
+class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -89,6 +94,7 @@ class AuthCard extends StatefulWidget {
 
 class _AuthCardState extends State<AuthCard> {
   final GlobalKey<FormState> _formKey = GlobalKey();
+
   AuthMode _authMode = AuthMode.StudentLogin;
   Map<String, String> _authData = {
     'email/rgNo': '',

@@ -25,8 +25,6 @@ class _MyAppState extends State<MyApp> {
         AuthScreen.routeName: (context) => AuthScreen(),
         CourseAndBook.id: (context) => CourseAndBook(),
         LibrarianView.id: (context) => LibrarianView(),
-        // RegistrationScreen.id: (context) => RegistrationScreen(),
-        // FoodMenuPage.id: (context) => FoodMenuPage()
       },
     );
   }
