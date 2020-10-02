@@ -1,4 +1,5 @@
 import 'package:e_book_library_nitw/LoginScreen.dart';
+import 'package:e_book_library_nitw/LoginScreen_L.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -29,11 +30,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 25.0),
                     child: Container(
-                      height: 200,
+                      height: deviceSize.height / 3,
                       decoration: BoxDecoration(
                         image: DecorationImage(
+                          fit: BoxFit.fill,
                           image: AssetImage(
-                            'images/nitwlogo.png',
+                            'images/Library.jpg',
                           ),
                         ),
                       ),
@@ -41,35 +43,55 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ),
                 ],
               ),
-              Hero(
-                tag: 'e-book Library Logo',
-                child: Center(
-                  child: RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: "e-Book ",
-                          style: TextStyle(
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 32,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Hero(
+                    tag: 'NITW logo',
+                    child: Container(
+                      height: deviceSize.height / 6,
+                      width: deviceSize.height / 6,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: AssetImage(
+                            'images/nitwlogo.png',
                           ),
                         ),
-                        TextSpan(
-                          text: "Library",
-                          style: TextStyle(
-                            color: Colors.orange,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 33,
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                   ),
-                ),
+                  Hero(
+                    tag: 'e-book Library name',
+                    child: Center(
+                      child: RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "e-Book ",
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                              ),
+                            ),
+                            TextSpan(
+                              text: "Library",
+                              style: TextStyle(
+                                color: Colors.orange,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
               RaisedButton(
-                padding: EdgeInsets.fromLTRB(10, 60, 10, 0),
+                padding: EdgeInsets.fromLTRB(10, 20, 10, 0),
                 child: Material(
                   elevation: 10.0,
                   color: Colors.indigo,
@@ -96,17 +118,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   color: Colors.green,
                   borderRadius: BorderRadius.circular(10.0),
                   child: MaterialButton(
+                    minWidth: deviceSize.width * 0.8,
+                    height: 42.0,
+                    child: Text('Librarian Login'),
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AuthScreen(),
+                          builder: (context) => AuthScreenL(),
                         ),
                       );
                     },
-                    minWidth: deviceSize.width * 0.8,
-                    height: 42.0,
-                    child: Text('Librarian Login'),
                   ),
                 ),
               ),

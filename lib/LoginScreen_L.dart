@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 
 enum AuthMode { LibrarianLogin, StudentLogin }
 
-class AuthScreen extends StatefulWidget {
-  static const routeName = '/auth';
+class AuthScreenL extends StatefulWidget {
+  static const routeName = '/authL';
 
   @override
-  _AuthScreenState createState() => _AuthScreenState();
+  _AuthScreenLState createState() => _AuthScreenLState();
 }
 
-class _AuthScreenState extends State<AuthScreen> {
+class _AuthScreenLState extends State<AuthScreenL> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -49,7 +49,7 @@ class _AuthScreenState extends State<AuthScreen> {
               ),
             ),
             Hero(
-              tag: 'e-book Library name',
+              tag: 'e-book Library Logo',
               child: Center(
                 child: RichText(
                   text: TextSpan(
@@ -95,7 +95,7 @@ class AuthCard extends StatefulWidget {
 class _AuthCardState extends State<AuthCard> {
   final GlobalKey<FormState> _formKey = GlobalKey();
 
-  AuthMode _authMode = AuthMode.StudentLogin;
+  AuthMode _authMode = AuthMode.LibrarianLogin;
   Map<String, String> _authData = {
     'email/rgNo': '',
     'password': '',
@@ -222,7 +222,7 @@ class _AuthCardState extends State<AuthCard> {
                   //login button
                   Padding(
                     padding:
-                    const EdgeInsets.only(left: 10, top: 10, right: 10),
+                        const EdgeInsets.only(left: 10, top: 10, right: 10),
                     child: Material(
                       elevation: 5.0,
                       color: _authMode == AuthMode.StudentLogin
@@ -241,7 +241,7 @@ class _AuthCardState extends State<AuthCard> {
                   //sign up <-> login exchange button
                   Padding(
                     padding:
-                    const EdgeInsets.only(left: 10, top: 20, right: 10),
+                        const EdgeInsets.only(left: 10, top: 20, right: 10),
                     child: Material(
                       elevation: 5.0,
                       color: _authMode == AuthMode.StudentLogin

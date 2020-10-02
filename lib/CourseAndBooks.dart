@@ -88,15 +88,15 @@ Widget _buildCourses(BuildContext context, String courseId) {
             AspectRatio(
               aspectRatio: 1,
               child: Container(
-                child: Text("Image",
+                child: Text(
+                  "Image",
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 10,
-                  ),),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                      color: Colors.black
                   ),
+                ),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black),
                   image: DecorationImage(
                     fit: BoxFit.fill,
                     image: AssetImage(
@@ -122,6 +122,3 @@ Widget _buildCourses(BuildContext context, String courseId) {
     ),
   );
 }
-
-
-
