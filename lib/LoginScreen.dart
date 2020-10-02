@@ -1,6 +1,8 @@
 import 'package:e_book_library_nitw/CourseAndBooks.dart';
 import 'package:e_book_library_nitw/LibrarianView.dart';
 import 'package:flutter/material.dart';
+import 'package:e_book_library_nitw/auth.dart';
+import 'package:provider/provider.dart';
 
 enum AuthMode { LibrarianLogin, StudentLogin }
 
@@ -113,12 +115,18 @@ class _AuthCardState extends State<AuthCard> {
       _isLoading = true;
     });
 
-    //TODO
-    Navigator.of(context).pushReplacementNamed(
-        _authMode == AuthMode.StudentLogin
-            ? CourseAndBook.id
-            : LibrarianView.id);
-
+    try {
+      await Provider.of<Auth>(context, listen: false).login(
+        _authData['email/rgNo'],
+        _authData['password'],
+      );
+      Navigator.of(context).pushReplacementNamed(
+          _authMode == AuthMode.StudentLogin
+              ? CourseAndBook.id
+              : LibrarianView.id);
+    } catch (error) {
+      throw (error);
+    }
     setState(() {
       _isLoading = false;
     });

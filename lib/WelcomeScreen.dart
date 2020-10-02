@@ -49,8 +49,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   Hero(
                     tag: 'NITW logo',
                     child: Container(
-                      height: deviceSize.height / 6,
-                      width: deviceSize.height / 6,
+                      height: deviceSize.height / 10,
+                      width: deviceSize.height / 10,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           fit: BoxFit.fill,

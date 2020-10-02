@@ -22,36 +22,50 @@ class _BookViewLibrarianState extends State<BookViewLibrarian> {
               color: Colors.white,
               height: deviceSize.height * 0.1,
               child: Padding(
-                padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
-                child: RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: "${widget.courseId}",
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 32,
-                        ),
+                padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: "${widget.courseId}",
+                            style: TextStyle(
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 32,
+                            ),
+                          ),
+                          TextSpan(
+                            text: " / ",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 32,
+                            ),
+                          ),
+                          TextSpan(
+                            text: "Books",
+                            style: TextStyle(
+                              color: Colors.orange,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 32,
+                            ),
+                          ),
+                        ],
                       ),
-                      TextSpan(
-                        text: " / ",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 32,
-                        ),
-                      ),
-                      TextSpan(
-                        text: "Books",
-                        style: TextStyle(
-                          color: Colors.orange,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 32,
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                    RaisedButton(
+                      color: Colors.blueAccent,
+                      onPressed: () {
+                        //TODO add new book
+                      },
+                      textColor: Colors.white,
+                      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                      child: Text('ADD BOOK'),
+                    ),
+                  ],
                 ),
               ),
             ),

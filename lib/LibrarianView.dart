@@ -24,20 +24,34 @@ class _LibrarianViewState extends State<LibrarianView> {
               color: Colors.white,
               height: deviceSize.height * 0.1,
               child: Padding(
-                padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
-                child: RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: "Courses",
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 32,
-                        ),
+                padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: "Courses",
+                            style: TextStyle(
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 32,
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                    RaisedButton(
+                      color: Colors.blueAccent,
+                      onPressed: () {
+                        //TODO add new course
+                      },
+                      textColor: Colors.white,
+                      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                      child: Text('ADD COURSE'),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -118,13 +132,14 @@ Widget _buildCourses(BuildContext context, String courseId) {
               ),
             ),
             RaisedButton(
-                color: Colors.blueAccent,
-                onPressed: () {
-                  //TODO delete the course
-                },
-                textColor: Colors.white,
-                padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                child: Text('DELETE')),
+              color: Colors.blueAccent,
+              onPressed: () {
+                //TODO delete the course
+              },
+              textColor: Colors.white,
+              padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+              child: Text('DELETE'),
+            ),
           ],
         ),
       ),
