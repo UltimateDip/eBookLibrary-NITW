@@ -1,4 +1,6 @@
+import 'package:e_book_library_nitw/CNB.dart';
 import 'package:e_book_library_nitw/CourseAndBooks.dart';
+import 'package:e_book_library_nitw/EditCourseData.dart';
 import 'package:e_book_library_nitw/LibrarianView.dart';
 import 'package:flutter/material.dart';
 import 'package:e_book_library_nitw/WelcomeScreen.dart';
@@ -23,6 +25,9 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider.value(
           value: Auth(),
         ),
+        ChangeNotifierProvider.value(
+          value: Edit(),
+        )
       ],
       child: Consumer<Auth>(
         builder: (context, auth, _) => MaterialApp(

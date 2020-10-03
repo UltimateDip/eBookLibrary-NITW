@@ -1,4 +1,6 @@
+import 'package:e_book_library_nitw/EditCourseData.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class BookViewLibrarian extends StatefulWidget {
   BookViewLibrarian(this.courseId);
@@ -93,6 +95,13 @@ class _BookViewLibrarianState extends State<BookViewLibrarian> {
 
 Widget _buildBooks(BuildContext context, String bookId) {
   final deviceSize = MediaQuery.of(context).size;
+  final bookData = Provider.of<Edit>(context);
+  final books = bookData.book;
+  final bookLength = books.length;
+  int i = 0;
+  while (books[i].id != bookId && i < bookLength) {
+    i++;
+  }
   return Padding(
     padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
     child: Container(
@@ -108,21 +117,10 @@ Widget _buildBooks(BuildContext context, String bookId) {
           AspectRatio(
             aspectRatio: 1,
             child: Container(
-              child: Text(
-                "Image",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 10,
-                ),
-              ),
+              //TODO
+              child: Image.network(books[i].imageUrl),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black),
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage(
-                    'images/bookimage/book.png',
-                  ),
-                ),
               ),
             ),
           ),
@@ -132,7 +130,7 @@ Widget _buildBooks(BuildContext context, String bookId) {
             width: deviceSize.width * 0.4,
             padding: EdgeInsets.all(10),
             child: Text(
-              "Details and links about book $bookId will be here",
+              books[i].bookDetails,
               style: TextStyle(color: Colors.black),
             ),
           ),

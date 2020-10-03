@@ -1,8 +1,10 @@
 import 'package:e_book_library_nitw/BookViewLibrarian.dart';
 import 'package:e_book_library_nitw/CourseBook2.dart';
+import 'package:e_book_library_nitw/EditCourseData.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
 
 class LibrarianView extends StatefulWidget {
   static const id = 'librarian_view';
@@ -79,6 +81,13 @@ class _LibrarianViewState extends State<LibrarianView> {
 
 Widget _buildCourses(BuildContext context, String courseId) {
   final deviceSize = MediaQuery.of(context).size;
+  final courseData = Provider.of<Edit>(context);
+  final courses = courseData.course;
+  final courseLength = courses.length;
+  int i = 0;
+  while (courses[i].id != courseId && i < courseLength) {
+    i++;
+  }
 
   return Padding(
     padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
@@ -103,21 +112,10 @@ Widget _buildCourses(BuildContext context, String courseId) {
             AspectRatio(
               aspectRatio: 1,
               child: Container(
-                child: Text(
-                  "Image",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 10,
-                  ),
-                ),
+                //TODO
+                child: Image.network(courses[i].imageUrl),
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black),
-                  image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage(
-                      'images/courseimage/$courseId.png',
-                    ),
-                  ),
                 ),
               ),
             ),
@@ -127,14 +125,14 @@ Widget _buildCourses(BuildContext context, String courseId) {
               width: deviceSize.width * 0.4,
               padding: EdgeInsets.all(10),
               child: Text(
-                "Details about course $courseId will be here",
+                courses[i].courseDetails,
                 style: TextStyle(color: Colors.black),
               ),
             ),
             RaisedButton(
               color: Colors.blueAccent,
               onPressed: () {
-                //TODO delete the course
+                //TODO delete the content
               },
               textColor: Colors.white,
               padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
