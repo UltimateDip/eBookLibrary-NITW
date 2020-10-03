@@ -2,6 +2,19 @@
 
 A new Flutter application.
 
+## LogIn:
+
+Student   :   stu1@abc.com
+              stu2@abc.com
+              stu3@abc.com
+              stu4@abc.com
+              stu5@abc.com
+Librarian :   user1@admin.com
+              user2@admin.com
+              
+  password : 1234567            
+  
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
