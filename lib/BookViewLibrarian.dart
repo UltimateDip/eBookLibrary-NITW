@@ -1,4 +1,5 @@
 import 'package:e_book_library_nitw/EditCourseData.dart';
+import 'package:e_book_library_nitw/Manage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,6 +16,9 @@ class _BookViewLibrarianState extends State<BookViewLibrarian> {
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
+    final bookData = Provider.of<Edit>(context);
+    final books = bookData.book;
+    final bookLength = books.length;
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -61,7 +65,11 @@ class _BookViewLibrarianState extends State<BookViewLibrarian> {
                     RaisedButton(
                       color: Colors.blueAccent,
                       onPressed: () {
-                        //TODO add new book
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => ManageBook(widget.courseId),
+                          ),
+                        );
                       },
                       textColor: Colors.white,
                       padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
@@ -77,13 +85,11 @@ class _BookViewLibrarianState extends State<BookViewLibrarian> {
             Container(
               color: Colors.white,
               height: deviceSize.height * 0.8,
-              child: ListView(
-                children: <Widget>[
-                  _buildBooks(context, 'B1'),
-                  _buildBooks(context, 'B2'),
-                  _buildBooks(context, 'B3'),
-                  _buildBooks(context, 'B4'),
-                ],
+              child: ListView.builder(
+                itemCount: bookLength,
+                itemBuilder: (context, index) {
+                  return _buildBooks(context, 'B${index + 1}');
+                },
               ),
             ),
           ],
@@ -160,6 +166,7 @@ Widget _buildBooks(BuildContext context, String bookId) {
                   color: Colors.blueAccent,
                   onPressed: () {
                     //TODO DELETE content
+
                   },
                   textColor: Colors.white,
                   padding: EdgeInsets.fromLTRB(10, 0, 10, 0),

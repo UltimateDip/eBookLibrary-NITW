@@ -179,6 +179,17 @@ class _AuthCardState extends State<AuthCard> {
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
+                      keyboardType: TextInputType.emailAddress,
+
+                      // ignore: missing_return
+                      validator: (value) {
+                        if (value.isEmpty ||
+                            !value.contains(_authMode == AuthMode.StudentLogin
+                                ? '@abc'
+                                : '@admin')) {
+                          return 'Invalid E-Mail';
+                        }
+                      },
                       onSaved: (value) {
                         _authData['email/rgNo'] = value;
                       },

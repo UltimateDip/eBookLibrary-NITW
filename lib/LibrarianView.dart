@@ -1,6 +1,6 @@
 import 'package:e_book_library_nitw/BookViewLibrarian.dart';
-import 'package:e_book_library_nitw/CourseBook2.dart';
 import 'package:e_book_library_nitw/EditCourseData.dart';
+import 'package:e_book_library_nitw/Manage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -17,6 +17,9 @@ class _LibrarianViewState extends State<LibrarianView> {
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
+    final courseData = Provider.of<Edit>(context);
+    final courses = courseData.course;
+    final courseLength = courses.length;
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -47,7 +50,11 @@ class _LibrarianViewState extends State<LibrarianView> {
                     RaisedButton(
                       color: Colors.blueAccent,
                       onPressed: () {
-                        //TODO add new course
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => ManageCourse(),
+                          ),
+                        );
                       },
                       textColor: Colors.white,
                       padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
@@ -63,13 +70,11 @@ class _LibrarianViewState extends State<LibrarianView> {
             Container(
               color: Colors.white,
               height: deviceSize.height * 0.8,
-              child: ListView(
-                children: <Widget>[
-                  _buildCourses(context, 'C1'),
-                  _buildCourses(context, 'C2'),
-                  _buildCourses(context, 'C3'),
-                  _buildCourses(context, 'C4'),
-                ],
+              child: ListView.builder(
+                itemCount: courseLength,
+                itemBuilder: (context, index) {
+                  return _buildCourses(context, 'C${index + 1}');
+                },
               ),
             ),
           ],

@@ -16,6 +16,10 @@ class _CourseAndBookState extends State<CourseAndBook> {
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
+    final courseData = Provider.of<Edit>(context);
+    final courses = courseData.course;
+    final courseLength = courses.length;
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -48,13 +52,11 @@ class _CourseAndBookState extends State<CourseAndBook> {
             Container(
               color: Colors.white,
               height: deviceSize.height * 0.8,
-              child: ListView(
-                children: <Widget>[
-                  _buildCourses(context, 'C1'),
-                  _buildCourses(context, 'C2'),
-                  _buildCourses(context, 'C3'),
-                  _buildCourses(context, 'C4'),
-                ],
+              child: ListView.builder(
+                itemCount: courseLength,
+                itemBuilder: (context, index) {
+                  return _buildCourses(context, 'C${index + 1}');
+                },
               ),
             ),
           ],

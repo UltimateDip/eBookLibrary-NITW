@@ -1,4 +1,3 @@
-import 'package:e_book_library_nitw/CNB.dart';
 import 'package:e_book_library_nitw/CourseAndBooks.dart';
 import 'package:e_book_library_nitw/EditCourseData.dart';
 import 'package:e_book_library_nitw/LibrarianView.dart';

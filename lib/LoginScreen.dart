@@ -178,6 +178,17 @@ class _AuthCardState extends State<AuthCard> {
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
+                      keyboardType: TextInputType.emailAddress,
+
+                      // ignore: missing_return
+                      validator: (value) {
+                        if (value.isEmpty ||
+                            !value.contains(_authMode == AuthMode.StudentLogin
+                                ? '@abc'
+                                : '@admin')) {
+                          return 'Invalid E-Mail';
+                        }
+                      },
                       onSaved: (value) {
                         _authData['email/rgNo'] = value;
                       },
@@ -230,7 +241,7 @@ class _AuthCardState extends State<AuthCard> {
                   //login button
                   Padding(
                     padding:
-                    const EdgeInsets.only(left: 10, top: 10, right: 10),
+                        const EdgeInsets.only(left: 10, top: 10, right: 10),
                     child: Material(
                       elevation: 5.0,
                       color: _authMode == AuthMode.StudentLogin
