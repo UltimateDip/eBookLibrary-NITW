@@ -123,7 +123,6 @@ Widget _buildBooks(BuildContext context, String bookId) {
           AspectRatio(
             aspectRatio: 1,
             child: Container(
-              //TODO
               child: Image.network(books[i].imageUrl),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black),
@@ -165,8 +164,8 @@ Widget _buildBooks(BuildContext context, String bookId) {
                 child: RaisedButton(
                   color: Colors.blueAccent,
                   onPressed: () {
-                    //TODO DELETE content
-
+                    //TODO
+                    bookData.removeBook(bookId);
                   },
                   textColor: Colors.white,
                   padding: EdgeInsets.fromLTRB(10, 0, 10, 0),

@@ -104,7 +104,6 @@ Widget _buildBooks(BuildContext context, String bookId) {
           AspectRatio(
             aspectRatio: 1,
             child: Container(
-              //TODO
               child: Image.network(books[i].imageUrl),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black),

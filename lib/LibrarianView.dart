@@ -117,7 +117,6 @@ Widget _buildCourses(BuildContext context, String courseId) {
             AspectRatio(
               aspectRatio: 1,
               child: Container(
-                //TODO
                 child: Image.network(courses[i].imageUrl),
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black),
@@ -137,7 +136,8 @@ Widget _buildCourses(BuildContext context, String courseId) {
             RaisedButton(
               color: Colors.blueAccent,
               onPressed: () {
-                //TODO delete the content
+                //TODO
+                courseData.removeCourse(courseId);
               },
               textColor: Colors.white,
               padding: EdgeInsets.fromLTRB(10, 0, 10, 0),

@@ -14,7 +14,7 @@ class Edit with ChangeNotifier {
       id: 'C2',
       courseName: 'C2',
       imageUrl:
-      'https://drive.google.com/uc?export=view&id=1E-wpefZB1bh-I2f9vQPdXCZy31jf_QK8',
+          'https://drive.google.com/uc?export=view&id=1E-wpefZB1bh-I2f9vQPdXCZy31jf_QK8',
       courseDetails: 'Details about course C2 will be here',
     ),
     Course(
@@ -69,6 +69,18 @@ class Edit with ChangeNotifier {
 
   List<Book> get book {
     return [..._book];
+  }
+
+  void removeCourse(String id) {
+    int i = int.parse(id.substring(1));
+
+    _course.removeAt(i - 1);
+  }
+
+  void removeBook(String id) {
+    int i = int.parse(id.substring(1));
+
+    _book.removeAt(i - 1);
   }
 
   void addCourse(String id,

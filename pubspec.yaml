@@ -33,8 +33,6 @@ flutter:
 
   assets:
     - images/
-    - images/courseimage/
-    - images/bookimage/
 
 
 
